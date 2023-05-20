@@ -11,8 +11,8 @@ import {
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import './Home.css';
-import vg from '.././assets/images/bg.png';
-import introVideo from '../assets/videos/intro.mp4';
+import vg from '../../assets/images/bg.png';
+import introVideo from '../../assets/videos/intro.mp4';
 
 import { CgGoogle, CgFacebook } from 'react-icons/cg';
 import { SiCoursera, SiUdemy } from 'react-icons/si';
@@ -29,9 +29,18 @@ export const Home = () => {
           alignItems="center"
           spacing={['16', '18', '20', '56']}
         >
-          <VStack width={'full'} alignItems={['center', 'flex-end']}>
+          <VStack
+            width={'full'}
+            alignItems={['center', 'flex-end']}
+            spacing={'8'}
+          >
             <Heading children="LEARN FROM THE EXPERTS" size={'2xl'} />
-            <Text children="Find Valuable Content At Resonable Price" />
+            <Text
+              fontSize={'2xl'}
+              fontFamily={'cursive'}
+              textAlign={['center', 'left']}
+              children="Find Valuable Content At Resonable Price"
+            />
             <Link to="/courses">
               <Button size={'lg'} colorScheme="yellow">
                 Explore Now
