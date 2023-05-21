@@ -34,11 +34,19 @@
   border-radius: 5px;
   outline: 0;
 }
-@media screen and (max-width:600px) {
+@media screen and (max-width: 600px) {
   .video-container > video {
     width: 100%;
   }
   .video-container {
     height: unset;
   }
+}
+.course {
+  width: 250px;
+  margin-bottom: 1rem;
+  transition: all 0.3s;
+}
+.course:hover {
+  transform: translateY(-10px);
 }
