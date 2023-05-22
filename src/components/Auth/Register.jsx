@@ -30,7 +30,7 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [imagePrev, setImagePrev] = useState('');
-  const [setImage] = useState('');
+  const [image, setImage] = useState('');
 
   const changeImageHandler = e => {
     const file = e.target.files[0];
