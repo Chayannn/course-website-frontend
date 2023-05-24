@@ -53,11 +53,11 @@ const Courses = () => {
         alignItems={['center', 'flex-start']}
       >
         <CourseCard
-          title={'Sample-title'}
+          title={'React The Complete Guide'}
           views={99}
-          imageSrc={'Sample'}
+          imageSrc={'https://cdn.pixabay.com/photo/2018/06/08/00/48/developer-3461405_1280.png'}
           id={'Sample'}
-          creator={'Sample-boy'}
+          creator={'Maximilian'}
           description={'Sample'}
           lectureCount={69}
           addToPlaylistHandler={addToPlaylistHandler}

@@ -35,7 +35,9 @@ const Register = () => {
   const changeImageHandler = e => {
     const file = e.target.files[0];
     const reader = new FileReader();
+
     reader.readAsDataURL(file);
+
     reader.onloadend = () => {
       setImagePrev(reader.result);
       setImage(file);
@@ -43,9 +45,10 @@ const Register = () => {
   };
 
   return (
-    <Container h={'95vh'}>
+    <Container h={'100vh'}>
       <VStack h={'full'} justifyContent={'center'} spacing={'16'}>
-        <Heading children={'Register to Access Courses'} />
+        <Heading children={'Registration'} textTransform={'uppercase'} />
+
         <form style={{ width: '100%' }}>
           <Box my={'4'} display={'flex'} justifyContent={'center'}>
             <Avatar src={imagePrev} size={'2xl'} />
@@ -102,10 +105,11 @@ const Register = () => {
           <Button my={'4'} colorScheme="yellow" type="submit">
             Sign Up
           </Button>
+
           <Box my={'4'}>
             Already a User?{' '}
             <Link to={'/login'}>
-              <Button colorScheme="blue" variant={'link'}>
+              <Button colorScheme="yellow" variant={'link'}>
                 Login
               </Button>{' '}
               here
