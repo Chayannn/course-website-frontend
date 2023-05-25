@@ -1,11 +1,7 @@
 import React from 'react';
 
 import { Box, HStack, Heading, Stack, VStack } from '@chakra-ui/react';
-import {
-  TiSocialYoutubeCircular,
-  TiSocialTwitterCircular,
-} from 'react-icons/ti';
-import { DiGithub } from 'react-icons/di';
+import { AiFillYoutube, AiFillTwitterCircle , AiOutlineGithub } from 'react-icons/ai';
 
 const Footer = () => {
   return (
@@ -31,13 +27,13 @@ const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <TiSocialYoutubeCircular />
+            <AiFillYoutube />
           </a>
           <a href="https://twitter.com/ChayanPanda11">
-            <TiSocialTwitterCircular />
+            <AiFillTwitterCircle />
           </a>
           <a href="https://github.com/Chayannn">
-            <DiGithub />
+            <AiOutlineGithub />
           </a>
         </HStack>
       </Stack>
