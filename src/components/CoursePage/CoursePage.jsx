@@ -1,15 +1,30 @@
-import React from 'react';
-import { Box, Grid, Heading, Text } from '@chakra-ui/react';
+import React, { useState } from 'react';
+import { Box, Grid, Heading, Text, VStack } from '@chakra-ui/react';
 import introVideo from '../../assets/videos/intro.mp4';
 
 const CoursePage = () => {
-  const lectureNumber = 1;
-  const lectureTitle = 'What are props';
+  const [lectureNumber, setLectureNumber] = useState(0);
 
   const lectures = [
     {
       _id: 'faafaafafafa',
-      title: 'sample',
+      title: 'sample1',
+      description: 'sample jganav kjengiagiabgadnvilarhgureagkjsvis ibgrbsjb',
+      video: {
+        url: 'kkfnjanfiubaf jkajka vja',
+      },
+    },
+    {
+      _id: 'faafaafafafa',
+      title: 'sample2',
+      description: 'sample jganav kjengiagiabgadnvilarhgureagkjsvis ibgrbsjb',
+      video: {
+        url: 'kkfnjanfiubaf jkajka vja',
+      },
+    },
+    {
+      _id: 'faafaafafafa',
+      title: 'sample3',
       description: 'sample jganav kjengiagiabgadnvilarhgureagkjsvis ibgrbsjb',
       video: {
         url: 'kkfnjanfiubaf jkajka vja',
@@ -29,15 +44,32 @@ const CoursePage = () => {
           disableRemotePlayback
           src={introVideo}
         />
-        <Heading m={'4'} children={`#${lectureNumber + 1} ${lectureTitle}`} />
-        <Heading m={'4'} children="description" />
-        <Text
-          m="4"
-          children={
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure eaque, deleniti, quos dolores sequi totam voluptas id laboriosam provident corporis, consequuntur consequatur ipsa quas necessitatibus magni. Nihil, repellendus pariatur nesciunt ratione modi voluptas. Beatae perspiciatis tenetur suscipit architecto, earum iste?'
-          }
+        <Heading
+          m={'4'}
+          children={`#${lectureNumber + 1} ${lectures[lectureNumber].title}`}
         />
+        <Heading m={'4'} children="description" />
+        <Text m="4" children={lectures[lectureNumber].description} />
       </Box>
+      <VStack>
+        {lectures.map((element, index) => (
+          <button
+            onClick={() => setLectureNumber(index)}
+            key={element._id}
+            style={{
+              width: '100%',
+              padding: '1rem',
+              textAlign: 'center',
+              margin: '0',
+              borderBottom: '1px solid rgba(0,0,0,0.2)',
+            }}
+          >
+            <Text noOfLines={1}>
+              #{index + 1} {element.title}{' '}
+            </Text>
+          </button>
+        ))}
+      </VStack>
     </Grid>
   );
 };
