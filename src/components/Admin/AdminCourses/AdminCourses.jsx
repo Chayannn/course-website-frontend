@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Grid } from '@chakra-ui/react';
+import { Box, Grid} from '@chakra-ui/react';
 import Sidebar from '../Sidebar';
 import cursor from '../../../assets/images/cursor.png';
 
