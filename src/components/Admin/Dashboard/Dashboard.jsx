@@ -4,6 +4,7 @@ import Sidebar from '../Sidebar';
 import cursor from '../../../assets/images/cursor.png';
 import DataBox from './DataBox';
 import Bar from './Bar';
+import { DoughnutChart, LineChart } from './Chart';
 
 const Dashboard = () => {
   return (
@@ -56,6 +57,7 @@ const Dashboard = () => {
             ml={['0', '16']}
           />
           {/* Line Graph here */}
+          <LineChart />
         </Box>
         <Grid templateColumns={['1fr', '2fr 1fr']}>
           <Box p={'4'}>
@@ -80,7 +82,8 @@ const Dashboard = () => {
               mb={'4'}
               children="Users"
             />
-            {'Donut Graph'}
+            {'Doughnut Graph'}
+            <DoughnutChart />
           </Box>
         </Grid>
       </Box>
