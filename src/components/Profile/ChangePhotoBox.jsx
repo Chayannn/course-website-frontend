@@ -40,7 +40,7 @@ const ChangePhotoBox = ({ isOpen, onClose, changeImageSubmitHandler }) => {
 
   return (
     <Modal isOpen={isOpen} onClose={closeHandler}>
-      <ModalOverlay backdropBlur={'10px'} />
+      <ModalOverlay  backdropFilter={'blur(10px)'} />
       <ModalContent>
         <ModalHeader>Change Photo</ModalHeader>
         <ModalCloseButton />

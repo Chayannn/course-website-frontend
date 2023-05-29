@@ -45,7 +45,7 @@ const Profile = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
 
   return (
-    <Container minH={'95vh'} minW={'container.lg'} py={'8'}>
+    <Container minH={'95vh'} maxW={'container.lg'} py={'8'}>
       <Heading children="Profile" margin={'8'} textTransform={'uppercase'} />
 
       <Stack
@@ -100,6 +100,7 @@ const Profile = () => {
         </VStack>
       </Stack>
       <Heading children="Playlist" size={'md'} my={'8'} />
+      
       {user.playlist.length > 0 && (
         <Stack
           direction={['column', 'row']}
