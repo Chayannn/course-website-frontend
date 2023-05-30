@@ -95,7 +95,7 @@ const Register = () => {
               accept="image/*"
               type="file"
               id="chooseAvatar"
-              placeholder="password"
+              placeholder="Choose Pic"
               focusBorderColor="yellow.500"
               css={fileUploadStyle}
               onChange={changeImageHandler}
