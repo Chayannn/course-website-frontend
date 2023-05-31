@@ -56,7 +56,6 @@ const Dashboard = () => {
             pt={['8', '0']}
             ml={['0', '16']}
           />
-          {/* Line Graph here */}
           <LineChart />
         </Box>
         <Grid templateColumns={['1fr', '2fr 1fr']}>
@@ -82,7 +81,6 @@ const Dashboard = () => {
               mb={'4'}
               children="Users"
             />
-            {'Doughnut Graph'}
             <DoughnutChart />
           </Box>
         </Grid>
