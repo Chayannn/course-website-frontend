@@ -76,6 +76,7 @@ const CourseModal = ({
               {lectures.map((item, index) => (
                 <VideoCard
                   num={index + 1}
+                  key={index}
                   title="React Intro"
                   description="this is a intro lecture where you will know the basics of react"
                   lectureId="gakgnlectureoagoanong"
