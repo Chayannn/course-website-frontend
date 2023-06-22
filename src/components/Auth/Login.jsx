@@ -9,14 +9,23 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { login } from '../../redux/actions/user';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const dispatch = useDispatch();
+
+  const submitHandler = e => {
+    e.preventDefault();
+    dispatch(login(email, password));
+  };
   return (
     <Container h={'95vh'}>
       <VStack h={'full'} justifyContent={'center'} spacing={'16'}>
         <Heading children={'Welcome to CodeNation'} />
-        <form style={{ width: '100%' }}>
+        <form onSubmit={submitHandler} style={{ width: '100%' }}>
           <Box my={'4'}>
             <FormLabel htmlFor="email" children="Email" />
             <Input
@@ -27,6 +36,7 @@ const Login = () => {
               onChange={e => setEmail(e.target.value)}
               placeholder="abc@gmail.com"
               focusBorderColor="yellow.500"
+              autoComplete="username"
             />
           </Box>
           <Box my={'4'}>
@@ -39,6 +49,7 @@ const Login = () => {
               onChange={e => setPassword(e.target.value)}
               placeholder="password"
               focusBorderColor="yellow.500"
+              autoComplete="current-password"
             />
           </Box>
           <Box>
