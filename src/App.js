@@ -50,7 +50,7 @@ function App() {
   }, [dispatch, error, message]);
 
   useEffect(() => {
-    dispatch(loadUser);
+    dispatch(loadUser());
   }, [dispatch]);
 
   return (
@@ -72,13 +72,23 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path="/register" element={<Register />} />
+        <Route
+          path="/register"
+          element={
+            <ProtectedRoute
+              isAuthenticated={!isAuthenticated}
+              redirect="/profile"
+            >
+              <Register />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/about" element={<About />} />
         <Route
           path="/profile"
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <Profile />
+              <Profile user={user} />
             </ProtectedRoute>
           }
         />

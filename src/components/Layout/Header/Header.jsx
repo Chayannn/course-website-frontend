@@ -14,13 +14,19 @@ import {
 import { RiDashboardFill, RiLogoutBoxLine, RiMenu5Fill } from 'react-icons/ri';
 import HeaderButtons from './HeaderButtons.jsx';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../../redux/actions/user.js';
 
 const Header = ({ isAuthenticated = false, user }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  const dispatch = useDispatch();
+
   const logoutHandler = () => {
     onClose();
+    dispatch(logout());
   };
+
   return (
     <>
       <ColorModeSwitcher />
