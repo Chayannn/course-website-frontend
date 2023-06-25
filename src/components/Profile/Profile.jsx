@@ -18,24 +18,7 @@ import { Link } from 'react-router-dom';
 
 import ChangePhotoBox from './ChangePhotoBox';
 
-const Profile = () => {
-  const user = {
-    name: 'Chayan',
-    email: 'chayan@gmail.com',
-    createdAt: String(new Date().toISOString()),
-    role: 'user',
-    subscription: {
-      status: 'active',
-    },
-    playlist: [
-      {
-        course: 'sdfafa',
-        poster:
-          'https://cdn.pixabay.com/photo/2018/06/08/00/48/developer-3461405_1280.png',
-      },
-    ],
-  };
-
+const Profile = ({ user }) => {
   const removeFromPlaylistHandler = () => {
     console.log('Hello Beeches');
   };
@@ -56,7 +39,7 @@ const Profile = () => {
         padding={'8'}
       >
         <VStack>
-          <Avatar boxSize={'48'} />
+          <Avatar boxSize={'48'} src={user.avatar.url} />
           <Button onClick={onOpen} colorScheme="yellow" variant={'ghost'}>
             Change Photo
           </Button>
@@ -78,7 +61,7 @@ const Profile = () => {
           {user.role !== 'admin' && (
             <HStack>
               <Text children="Subscription" fontWeight={'bold'} />
-              {user.subscription.status === 'active' ? (
+              {user.subscription && user.subscription.status === 'active' ? (
                 <Button variant={'ghost'} colorScheme="yellow">
                   Cancel Subscription
                 </Button>
@@ -100,7 +83,7 @@ const Profile = () => {
         </VStack>
       </Stack>
       <Heading children="Playlist" size={'md'} my={'8'} />
-      
+
       {user.playlist.length > 0 && (
         <Stack
           direction={['column', 'row']}
