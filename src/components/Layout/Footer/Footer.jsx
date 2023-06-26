@@ -8,14 +8,15 @@ const Footer = () => {
     <Box padding={'4'} bg={'blackAlpha.900'} minH={'10vh'}>
       <Stack direction={['column', 'row']}>
         <VStack alignItems={['center', 'flex-start']} width={'full'}>
-          <Heading children="All Rights Reserved" color={'white'} size={'md'} />
+          <Heading children="All Rights Reserved" color={'white'} />
           <Heading
-            children="@ X Corp"
-            color={'yellow.400'}
             fontFamily={'body'}
-            size={'sm'}
+            size="sm"
+            children="@CodeNation"
+            color={'yellow.400'}
           />
         </VStack>
+        
         <HStack
           spacing={['2', '10']}
           justifyContent={'center'}

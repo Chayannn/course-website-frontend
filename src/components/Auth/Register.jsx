@@ -60,7 +60,7 @@ const Register = () => {
   };
 
   return (
-    <Container h={'100vh'}>
+    <Container h={'95vh'}>
       <VStack h={'full'} justifyContent={'center'} spacing={'16'}>
         <Heading children={'Registration'} textTransform={'uppercase'} />
 
@@ -92,6 +92,7 @@ const Register = () => {
               focusBorderColor="yellow.500"
             />
           </Box>
+          
           <Box my={'4'}>
             <FormLabel htmlFor="password" children="Password" />
             <Input
