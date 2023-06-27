@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Container, Heading, Input, VStack } from '@chakra-ui/react';
 
-import { useDipatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { updateProfile } from '../../redux/actions/profile';
 
 const UpdateProfile = () => {

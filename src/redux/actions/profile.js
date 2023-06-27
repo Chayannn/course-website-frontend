@@ -30,6 +30,32 @@ export const updateProfile = (name, email) => async dispatch => {
   }
 };
 
+export const updateProfilePicture = formdata => async dispatch => {
+  try {
+    dispatch({ type: 'updateProfilePictureRequest' });
+
+    const { data } = await axios.put(
+      `${server}/updateprofilepicture`,
+      formdata,
+      {
+        headers: {
+          'Content-type': 'multipart/formdata',
+        },
+      },
+      {
+        withCredentials: true,
+      }
+    );
+
+    dispatch({ type: 'updateProfilePictureSuccess', payload: data.message });
+  } catch (error) {
+    dispatch({
+      type: 'updateProfilePictureFail',
+      payload: error.response.data.message,
+    });
+  }
+};
+
 export const changePassword = (oldPassword, newPassword) => async dispatch => {
   try {
     dispatch({ type: 'changePasswordRequest' });
@@ -54,34 +80,6 @@ export const changePassword = (oldPassword, newPassword) => async dispatch => {
   } catch (error) {
     dispatch({
       type: 'changePasswordFail',
-      payload: error.response.data.message,
-    });
-  }
-};
-
-export const updateProfilePicture = formdata => async dispatch => {
-  try {
-    dispatch({ type: 'updateProfilePictureRequest' });
-
-    const { data } = await axios.put(
-      `${server}/updateprofilepicture`,
-      {
-        formdata,
-      },
-      {
-        headers: {
-          'Content-type': 'multipart/formdata',
-        },
-      },
-      {
-        withCredentials: true,
-      }
-    );
-
-    dispatch({ type: 'updateProfilePictureSuccess', payload: data.message });
-  } catch (error) {
-    dispatch({
-      type: 'updateProfilePictureFail',
       payload: error.response.data.message,
     });
   }

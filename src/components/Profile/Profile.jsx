@@ -27,13 +27,12 @@ const Profile = ({ user }) => {
   };
 
   const dispatch = useDispatch;
-  
-  const changeImageSubmitHandler = (e, image) => {
+
+  const changeImageSubmitHandler = async (e, image) => {
     e.preventDefault();
     const myForm = new FormData();
     myForm.append('file', image);
-
-    dispatch(updateProfilePicture(myForm));
+    await dispatch(updateProfilePicture(myForm));
   };
 
   const { isOpen, onClose, onOpen } = useDisclosure();
