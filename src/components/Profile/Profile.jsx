@@ -18,13 +18,24 @@ import { Link } from 'react-router-dom';
 
 import ChangePhotoBox from './ChangePhotoBox';
 
+import { updateProfilePicture } from '../../redux/actions/profile';
+import { useDispatch } from 'react-redux';
+
 const Profile = ({ user }) => {
   const removeFromPlaylistHandler = () => {
     console.log('Hello Beeches');
   };
+
+  const dispatch = useDispatch;
+  
   const changeImageSubmitHandler = (e, image) => {
     e.preventDefault();
+    const myForm = new FormData();
+    myForm.append('file', image);
+
+    dispatch(updateProfilePicture(myForm));
   };
+
   const { isOpen, onClose, onOpen } = useDisclosure();
 
   return (

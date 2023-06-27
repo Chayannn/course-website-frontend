@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
 import { Button, Container, Heading, Input, VStack } from '@chakra-ui/react';
+import { changePassword } from '../../redux/actions/profile';
+import { useDispatch } from 'react-redux';
 
 const ChangePassword = () => {
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
+
+  const dispatch = useDispatch();
+  const submitHandler = e => {
+    e.preventDefault();
+
+    dispatch(changePassword(oldPassword, newPassword));
+  };
   return (
     <Container py={'16'} minH={'90vh'}>
-      <form>
+      <form onSubmit={submitHandler}>
         <Heading
           children="Change Password"
           my={'16'}
