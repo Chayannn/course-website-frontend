@@ -17,7 +17,12 @@ import {
 
 import { fileUploadCss } from '../Auth/Register';
 
-const ChangePhotoBox = ({ isOpen, onClose, changeImageSubmitHandler }) => {
+const ChangePhotoBox = ({
+  isOpen,
+  onClose,
+  changeImageSubmitHandler,
+  loading,
+}) => {
   const [imagePrev, setImagePrev] = useState('');
   const [image, setImage] = useState('');
 
@@ -40,7 +45,7 @@ const ChangePhotoBox = ({ isOpen, onClose, changeImageSubmitHandler }) => {
 
   return (
     <Modal isOpen={isOpen} onClose={closeHandler}>
-      <ModalOverlay  backdropFilter={'blur(10px)'} />
+      <ModalOverlay backdropFilter={'blur(10px)'} />
       <ModalContent>
         <ModalHeader>Change Photo</ModalHeader>
         <ModalCloseButton />
@@ -54,7 +59,12 @@ const ChangePhotoBox = ({ isOpen, onClose, changeImageSubmitHandler }) => {
                   css={{ '&::file-selector-button': fileUploadCss }}
                   onChange={changeImageHandler}
                 />
-                <Button w={'full'} colorScheme="yellow" type="submit">
+                <Button
+                  isLoading={loading}
+                  w={'full'}
+                  colorScheme="yellow"
+                  type="submit"
+                >
                   Change
                 </Button>
               </VStack>

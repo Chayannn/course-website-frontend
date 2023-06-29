@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Box,
   Button,
@@ -17,26 +17,34 @@ import {
 import Sidebar from '../Sidebar';
 import cursor from '../../../assets/images/cursor.png';
 import { RiDeleteBin7Fill } from 'react-icons/ri';
+import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-hot-toast';
 
 const Users = () => {
-  const users = [
-    {
-      _id: '0001',
-      name: 'Chayan Panda',
-      email: 'chayan@gmail.com',
-      role: 'admin',
-      subscription: {
-        status: 'active',
-      },
-    },
-  ];
+  const { users, loading, error, message } = useSelector(state => state.admin);
+
+  const dispatch = useDispatch();
 
   const updateHandler = userId => {
-    console.log(userId);
+    // dispatch(updateUserRole(userId));
   };
   const deleteButtonHandler = userId => {
-    console.log(userId);
+    // dispatch(deleteUser(userId));
   };
+
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+      dispatch({ type: 'clearError' });
+    }
+
+    if (message) {
+      toast.success(message);
+      dispatch({ type: 'clearMessage' });
+    }
+
+    // dispatch(getAllUsers());
+  }, [dispatch, error, message]);
 
   return (
     <Grid
@@ -74,6 +82,7 @@ const Users = () => {
                   item={item}
                   updateHandler={updateHandler}
                   deleteButtonHandler={deleteButtonHandler}
+                  loading={loading}
                 />
               ))}
             </Tbody>

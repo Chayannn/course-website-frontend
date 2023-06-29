@@ -9,13 +9,14 @@ const ChangePassword = () => {
   const [newPassword, setNewPassword] = useState('');
 
   const dispatch = useDispatch();
-  const submitHandler = e => {
+  const submitHandler = async e => {
     e.preventDefault();
 
-    dispatch(changePassword(oldPassword, newPassword));
+    await dispatch(changePassword(oldPassword, newPassword));
   };
 
   const { loading, message, error } = useSelector(state => state.profile);
+  
   useEffect(() => {
     if (error) {
       toast.error(error);
